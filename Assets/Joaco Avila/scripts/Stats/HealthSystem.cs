@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class HealthSystem : MonoBehaviour, IHealable, IDamageable
 {
+
     [Header("Health settings")]
     [SerializeField] float maxHealth;
     private float currentHealth;
@@ -15,6 +16,7 @@ public class HealthSystem : MonoBehaviour, IHealable, IDamageable
     [Header("UI health")]
     [SerializeField] HealthBar _healthBar;
     private EnemyBase _enemyBase;
+
     void Awake()
     {
 
@@ -70,6 +72,7 @@ public class HealthSystem : MonoBehaviour, IHealable, IDamageable
     }
     protected virtual void Die()
     {
-        gameObject.SetActive(false);
+
+        Destroy(gameObject);
     }
 }

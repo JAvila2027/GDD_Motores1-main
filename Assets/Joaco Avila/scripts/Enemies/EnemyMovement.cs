@@ -20,10 +20,7 @@ public class EnemyMovement : MonoBehaviour
             agent.speed = _enemyBase.MoveSpeed;
         }
     }
-    private void Start()
-    {
 
-    }
     public void MoveToTarget(Transform target)
     {
         if (target != null && agent != null)
@@ -31,4 +28,5 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(target.position);
         }
     }
+
 }
