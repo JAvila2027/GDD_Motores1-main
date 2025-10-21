@@ -135,24 +135,18 @@ public class HostileAi : MonoBehaviour
 
         if (playerTransform != null)
         {
-            // 2. CÁLCULO DE LA ROTACIÓN DESEADA
             Vector3 direction = playerTransform.position - transform.position;
-            direction.y = 0; // Importante para rotar solo en el eje Y (horizontal)
+            direction.y = 0;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
 
-            // 3. APLICAR LA ROTACIÓN MANUALMENTE Y SUAVEMENTE
-            // 'RotationSpeed' es una variable que deberías definir, por ejemplo, 5f.
             float rotationSpeed = 5f;
 
-            // Slerp hace que la rotación no sea instantánea, sino que vaya girando progresivamente.
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 lookRotation,
                 Time.deltaTime * rotationSpeed
             );
         }
-
-        // 4. DISPARO
         if (!isOnAttackCooldown)
         {
             FireProjectile();
